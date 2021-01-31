@@ -59,22 +59,30 @@ public class Company {
      * Возвращает список сотрудников, отсортированных по убыванию зарплаты
      */
     public List<Employee> getTopSalaryStaff(int count) {
-        return listEmployee.stream()
+        if (count > listEmployee.size() || count < 0) {
+            count = listEmployee.size(); //вернуть полный список если число не валидное
+        }
+        List<Employee> employees = listEmployee.stream()
                 .sorted(Comparator.comparingDouble(Employee::getMonthSalary).reversed())
 //                .map(Employee::getMonthSalary)
 //                .distinct()
                 .collect(Collectors.toList());
+        return employees.subList(0, count);
     }
 
     /**
      * Возвращает список сотрудников, отсортированных по возрастанию зарплаты
      */
     public List<Employee> getLowestSalaryStaff(int count) {
-        return listEmployee.stream()
+        if (count > listEmployee.size() || count < 0) {
+            count = listEmployee.size(); //вернуть полный список если число не валидное
+        }
+        List<Employee> employees = listEmployee.stream()
                 .sorted(Comparator.comparingDouble(Employee::getMonthSalary))
 //                .map(Employee::getMonthSalary)
 //                .distinct()
                 .collect(Collectors.toList());
+        return employees.subList(0, count);
     }
 
     public void printSalary(List<Employee> list) {
