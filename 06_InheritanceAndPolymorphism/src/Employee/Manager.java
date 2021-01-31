@@ -2,9 +2,9 @@ package Employee;
 
 public class Manager implements Employee {
     private final double interest = 0.05;
-    private final double salary = 45000.00;
-    private final double minProfit = 115000.00;
-    private final double maxProfit = 140000.00;
+    private final int salary = 45000;
+    private final int minProfit = 115000;
+    private final int maxProfit = 140000;
     private double profit;
 
     public Manager() {

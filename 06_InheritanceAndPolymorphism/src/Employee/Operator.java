@@ -1,7 +1,7 @@
 package Employee;
 
 public class Operator implements Employee {
-    private final double salary = 50000.00;
+    private final int salary = 50000;
 
     @Override
     public double getMonthSalary() {
